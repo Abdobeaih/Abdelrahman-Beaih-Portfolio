@@ -3,7 +3,7 @@ import type { Dict } from './types';
 /** قاموس الواجهة بالعربية (فصحى حديثة وطبيعية، لا ترجمة حرفية). */
 export const ar: Dict = {
   meta: {
-    title: 'عبدالرحمن بيعه — مطوّر واجهات أمامية و MERN Stack',
+    title: 'عبدالرحمن بيه — مطوّر واجهات أمامية و MERN Stack',
     description:
       'مطوّر واجهات أمامية و MERN Stack مبتدئ في القاهرة، مصر. أبني تطبيقات ويب سريعة ومتجاوبة بتقنيات React و TypeScript و Node.js و MongoDB.',
   },
