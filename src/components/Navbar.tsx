@@ -76,12 +76,17 @@ function NavbarBase() {
       >
         <a
           href="#home"
-          className="font-display text-xl tracking-tight"
+          className="flex items-center"
           aria-label={`AB — ${profile.display[lang]}`}
           onClick={handleNavClick}
         >
-          <span className="mono-isolate">AB</span>
-          <span className="gold">.</span>
+          <img
+            src="/Desktop_-_15.webp"
+            alt=""
+            width={1024}
+            height={963}
+            className="h-9 w-auto sm:h-10"
+          />
         </a>
 
         <ul ref={listRef} className="relative hidden items-center gap-7 lg:flex">
