@@ -723,16 +723,17 @@ function JourneyMapBase() {
             </div>
           </div>
 
-          {/* info card — overlaid on wide screens, in flow on mobile */}
-          <div className="journey-map__info" aria-live="polite" aria-atomic="true">
-            <div key={active} className="card-in">
-              <p className="d">
-                {pick(current.date, lang)} · {pick(current.city, lang)}
-              </p>
-              <h3>{pick(current.role, lang)}</h3>
-              <p>{pick(current.organization, lang)}</p>
-              <p className="desc">{pick(current.description, lang)}</p>
-            </div>
+        </div>
+
+        {/* info card — overlaid on wide screens, in normal flow under the map on mobile */}
+        <div className="journey-map__info" aria-live="polite" aria-atomic="true">
+          <div key={active} className="card-in">
+            <p className="d">
+              {pick(current.date, lang)} · {pick(current.city, lang)}
+            </p>
+            <h3>{pick(current.role, lang)}</h3>
+            <p>{pick(current.organization, lang)}</p>
+            <p className="desc">{pick(current.description, lang)}</p>
           </div>
         </div>
       </div>
