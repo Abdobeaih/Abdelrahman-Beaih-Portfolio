@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0B" />
+
+    <script>
+      (function () {
+        try {
+          var l = localStorage.getItem('ab-lang');
+          if (l !== 'ar' && l !== 'en') {
+            l = (navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
+          }
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+        } catch (e) {
+          /* ignore */
+        }
+      })();
+    </script>
+
+    <title>Abdelrahman Beaih — Front-End &amp; MERN Stack Developer</title>
+    <meta
+      name="description"
+      content="Abdelrahman Beaih — Junior Front-End / MERN Stack Developer in Cairo, Egypt. Building responsive, component-based web apps with React, TypeScript, Node.js and MongoDB."
+    />
+    <meta name="author" content="Abdelrahman A. M. Beaih" />
+    <link rel="canonical" href="https://abdelrhmanbeaih.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Abdelrahman Beaih — Front-End &amp; MERN Stack Developer" />
+    <meta
+      property="og:description"
+      content="An 8-station journey through my career as a Front-End / MERN Stack Developer. React, TypeScript, Node.js, MongoDB."
+    />
+    <meta property="og:url" content="https://abdelrhmanbeaih.vercel.app/" />
+    <meta property="og:site_name" content="Abdelrahman Beaih" />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_EG" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abdelrahman Beaih — Front-End &amp; MERN Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="An 8-station journey through my career as a Front-End / MERN Stack Developer."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abdelrahman A. M. Beaih",
+        "alternateName": "Abdelrahman Beaih",
+        "jobTitle": "Junior Front-End / MERN Stack Developer",
+        "email": "mailto:abdobeaih43@gmail.com",
+        "telephone": "+20 109 020 5350",
+        "url": "https://abdelrhmanbeaih.vercel.app/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cairo",
+          "addressCountry": "Egypt"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/abdelrhman-beaih/",
+          "https://github.com/Abdobeaih"
+        ],
+        "knowsAbout": [
+          "React.js",
+          "TypeScript",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "Next.js",
+          "Tailwind CSS"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Suez University"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

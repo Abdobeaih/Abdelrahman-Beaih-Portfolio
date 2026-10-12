@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abdelrhmanbeaih.vercel.app/sitemap.xml

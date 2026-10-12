@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journey Map Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F1317;--text:#F2F5F4;--text-muted:#9AA6A8;
+  --accent:#8EE6A0;--accent-strong:#5CCB7A;--label:#1F8A7F;--label-text:#E8FFF4;
+  --sky-top:#08141A;--sky-bottom:#12303A;--hill-1:#1B4636;--hill-2:#17402F;--hill-3:#123428;
+  --river:#1F6A86;--pyramid-1:#B98F58;--pyramid-2:#8F6C40;--city:#1E405A;--city-dark:#17344A;
+  --window:#F2C14E;--moon:#CFC7A3;--sign:#D8D2C0;--palm:#1C5A43;--trunk:#0E2A21;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);min-height:100vh;display:grid;place-items:center;padding:24px;font-family:Outfit,system-ui,sans-serif;color:var(--text)}
+.map{position:relative;width:min(100%,900px);aspect-ratio:760/470;border-radius:24px;overflow:hidden;container-type:inline-size;background:var(--sky-top);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.map>svg{position:absolute;inset:0;width:100%;height:100%}
+.hud{position:absolute;left:2.4cqw;top:4cqw;display:flex;gap:1.6cqw;align-items:center;padding:1.1cqw 2.6cqw 1.1cqw 1.3cqw;border-radius:1.9cqw;background:rgba(8,20,24,.82);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px)}
+.ring{position:relative;width:6cqw;height:6cqw}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-size:1.65cqw;font-weight:600}
+.hud b{display:block;font-size:2.5cqw;font-weight:600;line-height:1.1}
+.hud small{display:block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:1.6cqw;color:var(--text-muted);margin-top:.3cqw}
+.info{position:absolute;left:2.4cqw;top:47.5%;width:40.5cqw;padding:1.8cqw 2cqw;border-radius:1.8cqw;background:rgba(8,20,22,.92);border:1px solid rgba(255,255,255,.06);border-left:.5cqw solid var(--accent);transition:opacity .25s ease,transform .25s ease}
+.info.swap{opacity:0;transform:translateY(.8cqw)}
+.info .d{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:1.7cqw;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.info h3{font-size:2.55cqw;font-weight:600;margin:.8cqw 0 .5cqw;line-height:1.15}
+.info p{font-size:1.9cqw;color:var(--text-muted)}
+.ctrl{position:absolute;right:2.6cqw;bottom:2.6cqw;display:flex;gap:1cqw}
+.ctrl button{width:4.6cqw;height:4.6cqw;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(8,20,24,.7);color:var(--text);font-size:2.2cqw;cursor:pointer;transition:border-color .2s,background .2s}
+.ctrl button:hover{border-color:var(--accent);background:rgba(142,230,160,.12)}
+.ctrl button:focus-visible,.node:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.node{cursor:pointer}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3);opacity:0}}
+.sign{cursor:pointer}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:.35}.info{transition:none}}
+</style>
+</head>
+<body>
+<div class="map" id="map" role="region" aria-label="Career journey map">
+<svg viewBox="0 0 760 470" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky-top)"/><stop offset="1" stop-color="var(--sky-bottom)"/></linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <rect width="760" height="470" fill="url(#sky)"/>
+  <g id="stars"></g>
+  <circle cx="705" cy="45" r="13" fill="var(--moon)"/><circle cx="711" cy="41" r="12" fill="var(--sky-top)"/>
+  <polygon points="520,118 572,48 626,118" fill="var(--pyramid-1)"/><polygon points="572,48 626,118 584,118" fill="var(--pyramid-2)"/>
+  <polygon points="598,118 636,78 676,118" fill="var(--pyramid-1)"/><polygon points="636,78 676,118 648,118" fill="var(--pyramid-2)"/>
+  <path d="M0,112 C120,96 260,126 400,113 C520,101 650,120 760,108 V470 H0Z" fill="var(--hill-1)"/>
+  <!-- tall blue blocks (right) -->
+  <rect x="668" y="170" width="26" height="130" fill="var(--city)"/><rect x="696" y="164" width="24" height="136" fill="#21496A"/><rect x="722" y="196" width="26" height="104" fill="var(--city)"/>
+  <!-- offices top -->
+  <g><rect x="186" y="120" width="56" height="44" rx="2" fill="var(--city-dark)"/><text x="214" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="15" fill="var(--accent)" opacity=".85">{ }</text>
+     <g fill="var(--window)" opacity=".7"><rect x="194" y="130" width="8" height="5"/><rect x="208" y="130" width="8" height="5"/><rect x="222" y="130" width="8" height="5"/></g></g>
+  <g><rect x="392" y="80" width="60" height="36" rx="2" fill="var(--city-dark)"/><text x="422" y="72" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="15" fill="var(--accent)" opacity=".85">&lt;/&gt;</text>
+     <g fill="var(--window)" opacity=".85"><rect x="400" y="90" width="9" height="5"/><rect x="415" y="90" width="9" height="5"/><rect x="430" y="90" width="9" height="5"/></g></g>
+  <!-- river -->
+  <path d="M372,78 C395,100 392,130 372,160 C350,195 360,230 372,270 C385,310 350,360 340,410 C335,440 330,455 322,470 L348,470 C354,450 364,430 374,410 C402,350 422,310 402,270 C387,235 397,200 412,160 C430,120 412,95 392,78Z" fill="var(--river)"/>
+  <path d="M388,90 C402,120 392,150 380,175" stroke="#2C86A8" stroke-width="2" fill="none" opacity=".5"/>
+  <path d="M0,332 C100,302 220,332 330,352 C450,374 560,332 760,302 V470 H0Z" fill="var(--hill-2)"/>
+  <path d="M0,402 C120,382 250,412 380,422 C520,432 650,402 760,382 V470 H0Z" fill="var(--hill-3)"/>
+  <g stroke="#1d4a38" stroke-width="1" opacity=".6"><line x1="127" y1="440" x2="277" y2="440"/><line x1="127" y1="446" x2="277" y2="446"/><line x1="127" y1="452" x2="277" y2="452"/></g>
+  <!-- city lower -->
+  <g id="city"></g>
+  <!-- dome (university) -->
+  <g transform="translate(12,343)"><rect x="0" y="22" width="56" height="24" fill="var(--city-dark)"/><path d="M10,22 C10,2 46,2 46,22Z" fill="#2B6B5A"/><rect x="26" y="-6" width="4" height="10" fill="#2B6B5A"/>
+    <g fill="#0c2330"><rect x="6" y="28" width="5" height="18"/><rect x="18" y="28" width="5" height="18"/><rect x="33" y="28" width="5" height="18"/><rect x="45" y="28" width="5" height="18"/></g></g>
+  <!-- house + silo (smart home) -->
+  <g transform="translate(162,363)"><rect x="4" y="16" width="36" height="24" fill="#8A4A3A"/><polygon points="0,18 22,2 44,18" fill="#A5402F"/><rect x="18" y="26" width="8" height="14" fill="#2c1a16"/>
+    <rect x="46" y="8" width="12" height="32" rx="3" fill="#8C9AA0"/><path d="M46,8 C46,2 58,2 58,8Z" fill="#6E7C82"/>
+    <path d="M13,12 q9,-8 18,0" stroke="var(--accent)" stroke-width="1.4" fill="none" opacity=".9"/></g>
+  <!-- classical building + cap (NTI) -->
+  <g transform="translate(506,233)"><polygon points="0,10 32,-4 64,10" fill="#31546F"/><rect x="2" y="10" width="60" height="4" fill="#3E6684"/>
+    <g fill="#274560"><rect x="6" y="14" width="5" height="24"/><rect x="16" y="14" width="5" height="24"/><rect x="26" y="14" width="5" height="24"/><rect x="36" y="14" width="5" height="24"/><rect x="46" y="14" width="5" height="24"/><rect x="55" y="14" width="5" height="24"/></g>
+    <rect x="0" y="38" width="64" height="4" fill="#3E6684"/>
+    <g transform="translate(32,-16)"><polygon points="-10,0 0,-5 10,0 0,5" fill="#E8EDEB"/><path d="M-6,3 v5 q6,4 12,0 v-5" fill="#C9D3D0"/></g></g>
+  <g id="palms"></g>
+  <!-- sailboat -->
+  <g transform="translate(352,262)"><polygon points="0,0 0,-26 14,-2" fill="#EEF3F2"/><polygon points="-2,0 -2,-18 -14,-2" fill="#C5D2D4"/><path d="M-14,2 H18 L12,9 H-8Z" fill="#8A5C3C"/></g>
+  <!-- dotted continuation to the signpost -->
+  <path d="M473,119 C520,121 560,116 640,98" stroke="var(--accent)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round" fill="none" opacity=".55"/>
+  <!-- route -->
+  <path id="route" d="M71,414 C115,418 160,428 209,424 C290,418 340,352 402,353 C455,354 490,384 536,380 C610,374 700,352 690,290 C682,246 640,242 600,244 C560,246 525,244 490,240 C420,232 340,215 292,185 C270,170 285,150 320,142 C370,130 430,121 473,119" fill="none" stroke="#2c6a55" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+  <path id="glow" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" filter="url(#glow)" opacity=".55"/>
+  <path id="prog" fill="none" stroke="#B5F2C2" stroke-width="5" stroke-linecap="round"/>
+  <g id="nodes"></g>
+  <!-- signpost -->
+  <g class="sign" id="sign" tabindex="0" role="button" aria-label="Next station"><rect x="672" y="98" width="4" height="46" fill="#7a6a52"/><polygon points="640,74 696,74 708,82 696,90 640,90" fill="var(--sign)"/><text x="668" y="85.5" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="8" letter-spacing="1" fill="#2a2a2a">NEXT</text></g>
+</svg>
+
+<div class="hud">
+  <div class="ring"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="3.5"/><circle id="ringp" cx="20" cy="20" r="17" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/></svg><span id="count">1/8</span></div>
+  <div><b>stations</b><small>2020 &rarr; now</small></div>
+</div>
+
+<div class="info" id="info" aria-live="polite">
+  <div class="d" id="d"></div><h3 id="t"></h3><p id="o"></p>
+</div>
+
+<div class="ctrl"><button id="prev" aria-label="Previous station">&#8249;</button><button id="next" aria-label="Next station">&#8250;</button></div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+const $=id=>document.getElementById(id);
+const el=(n,a={},p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---- data (from the CV; label = text on the pill) ---- */
+const S=[
+ {l:'2020',d:'SEP 2020 · SUEZ',t:'Started B.Tech',o:'Suez University · Industrial Technology Education',at:[71,414]},
+ {l:'2023',d:'AUG 2023 · CAIRO',t:'Electrical Engineer Intern',o:'HSE & Site Operations',at:[209,424]},
+ {l:'2024',d:'MAY 2024 · SUEZ',t:'Graduated',o:'Graduation project: Smart Home Technologies · Excellent',at:[402,353]},
+ {l:'2025',d:'AUG 2025 · TANTA',t:'Front-End Developer Intern',o:'NTI · UI/UX',at:[536,380]},
+ {l:'JAN 26',d:'JAN 2026 · CAIRO',t:'MERN Stack Trainee',o:'Digilians · live product, 10,000+ monthly users',at:[666,254]},
+ {l:'MAY 26',d:'MAY 2026 · CAIRO',t:'Freelance MERN Developer',o:'Self-employed · bilingual RTL platforms',at:[490,240]},
+ {l:'JUL 26',d:'JUL 2026 · CAIRO',t:'Shipped Car Care & Mustakileen',o:'Digilians traineeship complete',at:[276,169]},
+ {l:'NOW',d:'OCT 2026 · CAIRO',t:'Open to Junior Front-End / MERN roles',o:'Egypt · Gulf · Remote',at:[473,119]}
+];
+
+/* ---- decorative scene ---- */
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const stars=$('stars');for(let i=0;i<46;i++)el('circle',{cx:rnd()*760,cy:rnd()*120,r:rnd()*1.1+.3,fill:'#fff',opacity:(.3+rnd()*.6).toFixed(2)},stars);
+const city=$('city');
+[[438,356,16,46],[456,344,18,58],[528,372,18,40],[548,362,22,52],[574,370,18,44],[598,376,16,36]].forEach(([x,y,w,h])=>{
+  el('rect',{x,y,width:w,height:h,fill:'var(--city-dark)'},city);
+  for(let yy=y+6;yy<y+h-4;yy+=8)for(let xx=x+3;xx<x+w-3;xx+=6)if(rnd()>.45)el('rect',{x:xx,y:yy,width:3,height:3.5,fill:'var(--window)',opacity:.8},city);
+});
+const palms=$('palms');
+[[298,142,1],[428,200,1],[120,432,1],[296,402,1.15],[386,458,1],[641,432,.9],[312,282,.9],[410,310,.9]].forEach(([x,y,s])=>{
+  const g=el('g',{transform:`translate(${x},${y}) scale(${s})`},palms);
+  el('path',{d:'M0,0 C3,-12 -1,-24 4,-34',stroke:'var(--trunk)','stroke-width':3.2,fill:'none','stroke-linecap':'round'},g);
+  ['M4,-34 q-16,-5 -24,7','M4,-34 q-8,-14 -20,-12','M4,-34 q8,-16 22,-10','M4,-34 q16,-4 24,8','M4,-34 q0,-12 -2,-18'].forEach(d=>el('path',{d,stroke:'var(--palm)','stroke-width':3,fill:'none','stroke-linecap':'round'},g));
+});
+
+/* ---- route + stations ---- */
+const route=$('route'),L=route.getTotalLength();
+const nearest=([x,y])=>{let b=0,bd=1e9;for(let l=0;l<=L;l+=1.5){const p=route.getPointAtLength(l),d=(p.x-x)**2+(p.y-y)**2;if(d<bd){bd=d;b=l}}return b};
+S.forEach(s=>{s.len=nearest(s.at);const p=route.getPointAtLength(s.len);s.x=p.x;s.y=p.y});
+const nodes=$('nodes');
+const ring=el('circle',{r:7,fill:'var(--accent)',class:'pulse',opacity:.7},nodes);
+S.forEach((s,i)=>{
+  const g=el('g',{class:'node',tabindex:0,role:'button','aria-label':`Station ${i+1}: ${s.t}`},nodes);
+  const last=i===S.length-1,w=s.l.length*6.6+18;
+  el('line',{x1:s.x,y1:s.y-8,x2:s.x,y2:s.y-17,stroke:last?'var(--accent)':'#2a8f84','stroke-width':1.5},g);
+  el('rect',{x:s.x-w/2,y:s.y-37,width:w,height:20,rx:6,fill:last?'var(--accent)':'var(--label)'},g);
+  const tx=el('text',{x:s.x,y:s.y-23.5,'text-anchor':'middle','font-family':'Outfit,sans-serif','font-weight':600,'font-size':11,fill:last?'#0b2a1a':'var(--label-text)'},g);tx.textContent=s.l;
+  s.dot=el('circle',{cx:s.x,cy:s.y,r:7,fill:'#fff',stroke:'#0b1517','stroke-width':2.5},g);
+  el('circle',{cx:s.x,cy:s.y,r:16,fill:'transparent'},g);
+  g.addEventListener('click',()=>go(i));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go(i)}});
+});
+
+/* ---- state + rendering ---- */
+const RC=2*Math.PI*17;$('ringp').setAttribute('stroke-dasharray',RC);
+let cur=0,active=0,raf=0,shown=-1;
+function render(){
+  const da=`${cur} ${L+10}`;
+  ['prog','glow'].forEach(id=>$(id).setAttribute('stroke-dasharray',da));
+  let a=0;S.forEach((s,i)=>{if(s.len<=cur+.8)a=i;s.dot.setAttribute('fill',s.len<=cur+.8?'#fff':'#8d9a9c')});
+  active=a;const s=S[a];
+  ring.setAttribute('cx',s.x);ring.setAttribute('cy',s.y);
+  $('ringp').setAttribute('stroke-dashoffset',RC*(1-(a+1)/S.length));
+  $('count').textContent=`${a+1}/${S.length}`;
+  if(shown!==a){shown=a;const info=$('info');info.classList.add('swap');
+    setTimeout(()=>{$('d').textContent=s.d;$('t').textContent=s.t;$('o').textContent=s.o;info.classList.remove('swap')},reduce?0:140)}
+}
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function go(i,dur){
+  i=Math.max(0,Math.min(S.length-1,i));cancelAnimationFrame(raf);
+  const from=cur,to=S[i].len,ms=reduce?0:(dur??Math.min(3400,Math.max(600,Math.abs(to-from)/L*3600)));
+  if(!ms){cur=to;render();return}
+  const t0=performance.now();
+  (function step(now){const k=Math.min(1,(now-t0)/ms);cur=from+(to-from)*ease(k);render();if(k<1)raf=requestAnimationFrame(step)})(t0);
+}
+const stepBy=d=>go(active+d);
+$('next').onclick=()=>stepBy(1);$('prev').onclick=()=>stepBy(-1);
+const sign=$('sign');sign.onclick=()=>active>=S.length-1?go(0):stepBy(1);
+sign.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sign.onclick()}});
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')stepBy(1);else if(e.key==='ArrowLeft')stepBy(-1);
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);
+});
+render();
+setTimeout(()=>go(S.length-1,4200),500);   /* intro: draw the whole journey */
+</script>
+</body>
+</html>
