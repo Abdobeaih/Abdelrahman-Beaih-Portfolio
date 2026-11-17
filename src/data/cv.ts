@@ -33,7 +33,7 @@ export const profile = {
    * when available. While empty, the Resume buttons fall back to an email
    * request so nothing is ever invented.
    */
-  resumeUrl: 'https://drive.google.com/file/d/1t5YELhC61-0BdbMfjWghDVuYUeDUFM3H/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/drive/u/0/folders/1Mbqp9763t9tQYNsOHkvQkHJu8HyKVaw3',
 } as const;
 
 export const whatsappLink = `https://wa.me/${profile.phoneE164.replace('+', '')}`;
