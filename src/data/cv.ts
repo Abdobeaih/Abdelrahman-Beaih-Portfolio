@@ -26,6 +26,7 @@ export const profile = {
   links: {
     linkedin: 'https://www.linkedin.com/in/abdelrahman-beaih/',
     github: 'https://github.com/Abdobeaih',
+    portfolio: 'https://abdelrahman-beaih-portfolio.vercel.app',
   },
   /**
    * TODO: paste the hosted resume PDF URL here (e.g. '/Abdelrahman-Beaih-CV.pdf')
@@ -48,8 +49,8 @@ export interface Stat {
 export const stats: Stat[] = [
   { id: 'users', value: 10000, suffix: '+' },
   { id: 'latency', value: 30, suffix: '%' },
-  { id: 'projects', value: 5 },
-  { id: 'roles', value: 4 },
+  { id: 'projects', value: 6 },
+  { id: 'roles', value: 5 },
 ];
 
 export interface Project {
@@ -58,7 +59,8 @@ export interface Project {
   name: string;
   stack: string[];
   live?: string;
-  code: string;
+  /** Public source repository. Omitted for proprietary products. */
+  code?: string;
   /** Cover screenshot served from `public/`. Falls back to the generated art. */
   image: string;
   /** Two glyphs used for the generated cover art fallback. */
@@ -68,9 +70,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'nawy-orders',
+    name: 'Nawy Orders',
+    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'SaaS'],
+    live: 'https://drive.google.com/drive/u/0/folders/1Mbqp9763t9tQYNsOHkvQkHJu8HyKVaw3',
+    image: '/nawy-orders.jpg',
+    monogram: 'NO',
+    accentIndex: 5,
+  },
+  {
     id: 'car-care',
     name: 'Mobile Car Care',
-    stack: ['React', 'Next.js', 'TypeScript', 'NestJS', 'MongoDB'],
+    stack: ['Next.js', 'React', 'TypeScript', 'NestJS', 'MongoDB'],
     live: 'https://car-wash-fronend.vercel.app',
     code: 'https://github.com/Abdobeaih/Car-Wash',
     image: '/mobile-carcare.jpg',
@@ -80,7 +91,7 @@ export const projects: Project[] = [
   {
     id: 'mustakileen',
     name: 'Mustakileen',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Zustand'],
     live: 'https://frontend-project-ed-xrvo.vercel.app',
     code: 'https://github.com/Abdobeaih/Githup-Project',
     image: '/mustakileen-freelancer360.jpg',
@@ -90,7 +101,7 @@ export const projects: Project[] = [
   {
     id: 'karam-el-sham',
     name: 'Karam El Sham',
-    stack: ['React', 'TypeScript'],
+    stack: ['React 19', 'Redux Toolkit', 'React Router', 'Tailwind CSS'],
     live: 'https://karam-el-sham-restaurant-sigma.vercel.app',
     code: 'https://github.com/Abdobeaih/karam-el-sham',
     image: '/karam-el-sham.jpg',
@@ -138,38 +149,71 @@ export const skillGroups: SkillGroup[] = [
       'Context API',
       'Zustand',
       'Tailwind CSS',
-      'Bootstrap 5',
+      'Bootstrap',
       'GSAP',
     ],
   },
   {
     id: 'backend',
-    items: ['Node.js', 'Express.js', 'NestJS', 'REST APIs', 'JWT Authentication', 'RBAC'],
+    items: ['Node.js', 'Express.js', 'NestJS', 'RESTful APIs', 'JWT Authentication', 'RBAC'],
   },
   {
     id: 'databases',
-    items: ['MongoDB', 'PostgreSQL', 'Supabase', 'Prisma ORM'],
+    items: ['MongoDB', 'Mongoose', 'PostgreSQL', 'Supabase', 'Prisma ORM'],
   },
   {
     id: 'tools',
-    items: ['Git', 'GitHub', 'npm', 'Vite', 'Docker', 'Vercel', 'Netlify', 'VS Code'],
+    items: ['Git', 'GitHub', 'Jira', 'Jest', 'npm', 'Vite', 'Docker', 'Vercel', 'Netlify', 'VS Code'],
   },
   {
-    id: 'practices',
+    id: 'competencies',
     items: [
-      'Responsive / Mobile-First',
+      'Full-Stack Web Development',
+      'REST API Design',
+      'Authentication & Authorization',
+      'Single-Page Applications (SPA)',
+      'State Management',
+      'Component-Based Architecture',
+      'Performance Optimization',
+      'Responsive Design',
+      'i18n & RTL UI',
       'WCAG',
-      'Monorepo (npm workspaces)',
-      'Bilingual Arabic/English RTL UI',
+      'Agile/Scrum',
+      'Code Review',
     ],
+  },
+  {
+    id: 'ai',
+    items: ['Claude AI', 'AI Agents', 'AI-Assisted Development'],
   },
 ];
 
-export const certification = {
-  id: 'nti-uiux',
-  org: 'NTI',
-  year: 2025,
-} as const;
+export interface Certification {
+  id: string;
+  label: LocalizedText;
+  issuer: LocalizedText;
+  year?: LocalizedText;
+}
+
+export const certifications: Certification[] = [
+  {
+    id: 'meta-frontend',
+    label: {
+      en: 'Meta Front-End Developer Professional Certificate',
+      ar: 'شهادة Meta الاحترافية لمطوّري الواجهات الأمامية',
+    },
+    issuer: { en: 'Meta (Coursera)', ar: 'Meta (Coursera)' },
+  },
+  {
+    id: 'nti-uiux',
+    label: {
+      en: 'UI/UX & Front-End Web Development',
+      ar: 'تصميم تجربة المستخدم وتطوير الواجهات الأمامية',
+    },
+    issuer: { en: 'National Telecommunication Institute (NTI)', ar: 'المعهد القومي للاتصالات (NTI)' },
+    year: { en: '2025', ar: '٢٠٢٥' },
+  },
+];
 
 export interface Experience {
   id: string;
@@ -181,6 +225,14 @@ export interface Experience {
 }
 
 export const experience: Experience[] = [
+  {
+    id: 'spectech',
+    company: 'SpecTech',
+    city: { en: 'Alexandria', ar: 'الإسكندرية' },
+    start: { en: 'Jul 2026', ar: 'يوليو ٢٠٢٦' },
+    end: { en: 'Present', ar: 'حتى الآن' },
+    current: true,
+  },
   {
     id: 'freelance',
     company: 'Self-Employed',
@@ -238,19 +290,27 @@ export const marqueeKeywords = [
   'Express',
   'NestJS',
   'MongoDB',
+  'Mongoose',
   'PostgreSQL',
+  'Supabase',
   'Prisma',
   'Tailwind CSS',
   'Redux Toolkit',
   'Zustand',
+  'TanStack Query',
   'GSAP',
   'REST APIs',
   'JWT',
   'RBAC',
+  'Jest',
+  'Jira',
   'Docker',
   'Vite',
   'WCAG',
   'RTL',
+  'SaaS',
+  'PWA',
   'UI/UX',
   'Mobile-First',
+  'Claude AI',
 ];

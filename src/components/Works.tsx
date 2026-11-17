@@ -82,16 +82,18 @@ function WorksBase() {
                         <ArrowUpRightIcon width={15} height={15} />
                       </a>
                     ) : null}
-                    <a
-                      href={project.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline text-sm"
-                      aria-label={`${project.name} — ${t.works.viewCode}`}
-                    >
-                      <GitHubIcon width={15} height={15} />
-                      {t.works.viewCode}
-                    </a>
+                    {project.code ? (
+                      <a
+                        href={project.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline text-sm"
+                        aria-label={`${project.name} — ${t.works.viewCode}`}
+                      >
+                        <GitHubIcon width={15} height={15} />
+                        {t.works.viewCode}
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </article>

@@ -82,12 +82,10 @@ export interface Dict {
       backend: string;
       databases: string;
       tools: string;
-      practices: string;
+      competencies: string;
+      ai: string;
     };
     certificationTitle: string;
-    certificationLabel: string;
-    certificationIssuer: string;
-    certificationYear: string;
     issued: string;
   };
   timeline: {

@@ -42,6 +42,7 @@ import {
   WcagIcon,
   ZustandIcon,
 } from '../components/icons/tech';
+import { SparkIcon } from '../components/icons';
 
 /** Group-header icons for the Toolkit section, keyed by `SkillGroup.id`. */
 export const skillGroupIcons: Record<string, ComponentType<IconProps>> = {
@@ -50,7 +51,8 @@ export const skillGroupIcons: Record<string, ComponentType<IconProps>> = {
   backend: ServerIcon,
   databases: DatabaseIcon,
   tools: SlidersIcon,
-  practices: CheckBadgeIcon,
+  competencies: CheckBadgeIcon,
+  ai: SparkIcon,
 };
 
 /** Technology chips → icon, keyed by the lower-cased label used in `cv.ts`. */
@@ -71,16 +73,19 @@ export const techIcons: Record<string, ComponentType<IconProps>> = {
   zustand: ZustandIcon,
   'tailwind css': TailwindIcon,
   'bootstrap 5': BootstrapIcon,
+  bootstrap: BootstrapIcon,
   gsap: GsapIcon,
   'node.js': NodeIcon,
   'express.js': ExpressIcon,
   express: ExpressIcon,
   nestjs: NestJsIcon,
   'rest apis': RestApiIcon,
+  'restful apis': RestApiIcon,
   'jwt authentication': JwtIcon,
   jwt: JwtIcon,
   rbac: RbacIcon,
   mongodb: MongoDbIcon,
+  mongoose: DatabaseIcon,
   postgresql: PostgresIcon,
   supabase: SupabaseIcon,
   'prisma orm': PrismaIcon,
@@ -93,13 +98,34 @@ export const techIcons: Record<string, ComponentType<IconProps>> = {
   vercel: VercelIcon,
   netlify: NetlifyIcon,
   'vs code': VsCodeIcon,
+  jira: SlidersIcon,
+  jest: CheckBadgeIcon,
   'responsive / mobile-first': ResponsiveIcon,
+  'responsive design': ResponsiveIcon,
   'mobile-first': ResponsiveIcon,
   wcag: WcagIcon,
   'monorepo (npm workspaces)': MonorepoIcon,
   'bilingual arabic/english rtl ui': BilingualIcon,
+  'i18n & rtl ui': BilingualIcon,
   rtl: BilingualIcon,
   'ui/ux': LayoutIcon,
+  'react 19': ReactIcon,
+  'react router': ReactIcon,
+  'tanstack query': CodeIcon,
+  'full-stack web development': ServerIcon,
+  'rest api design': RestApiIcon,
+  'authentication & authorization': RbacIcon,
+  'single-page applications (spa)': LayoutIcon,
+  'state management': SlidersIcon,
+  'component-based architecture': LayoutIcon,
+  'performance optimization': GsapIcon,
+  'agile/scrum': CheckBadgeIcon,
+  'code review': CheckBadgeIcon,
+  'claude ai': SparkIcon,
+  'ai agents': SparkIcon,
+  'ai-assisted development': SparkIcon,
+  saas: LayoutIcon,
+  pwa: LayoutIcon,
 };
 
 /** Resolve a technology label to its icon component, or `null` when unknown. */

@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useLang } from '../i18n/context';
-import { skillGroups } from '../data/cv';
+import { certifications, pick, skillGroups } from '../data/cv';
 import { SectionHeading } from './SectionHeading';
 import { TechChip } from './TechChip';
 import { useReveal } from '../hooks/useReveal';
@@ -8,7 +8,7 @@ import { CodeIcon } from './icons/tech';
 import { skillGroupIcons } from '../lib/techIcons';
 
 function SkillsBase() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const revealRef = useReveal<HTMLDivElement>();
 
   const groups = useMemo(
@@ -51,7 +51,7 @@ function SkillsBase() {
           })}
 
           <article
-            className="card relative flex flex-col justify-between gap-6 overflow-hidden p-6 sm:p-7 lg:col-span-3"
+            className="card relative flex flex-col justify-between gap-6 overflow-hidden p-6 sm:p-7 lg:col-span-2"
             data-reveal
             style={{
               background:
@@ -65,15 +65,23 @@ function SkillsBase() {
             />
             <div className="relative flex flex-col gap-2">
               <span className="label">{t.skills.certificationTitle}</span>
-              <h3 className="display-title" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-                {t.skills.certificationLabel}
-              </h3>
             </div>
-            <div className="relative flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[var(--text-muted)]">
-              <span>{t.skills.certificationIssuer}</span>
-              <span className="label mono-isolate">
-                {t.skills.issued} {t.skills.certificationYear}
-              </span>
+            <div className="relative grid gap-6 sm:grid-cols-2">
+              {certifications.map((cert) => (
+                <div key={cert.id} className="flex flex-col gap-2">
+                  <h3 className="display-title" style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.9rem)' }}>
+                    {pick(cert.label, lang)}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-[var(--text-muted)]">
+                    <span>{pick(cert.issuer, lang)}</span>
+                    {cert.year ? (
+                      <span className="label mono-isolate">
+                        {t.skills.issued} {pick(cert.year, lang)}
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
             </div>
           </article>
         </div>

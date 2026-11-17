@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useLang } from '../i18n/context';
-import { education, marqueeKeywords, pick, profile } from '../data/cv';
+import { education, certifications, marqueeKeywords, pick, profile } from '../data/cv';
 import { SectionHeading } from './SectionHeading';
 import { Marquee } from './Marquee';
 import { useReveal } from '../hooks/useReveal';
@@ -51,14 +51,20 @@ function CommunityBase() {
                 'linear-gradient(160deg, color-mix(in srgb, var(--accent) 9%, var(--bg-elevated)), var(--bg-elevated) 65%)',
             }}
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <span className="label">{t.skills.certificationTitle}</span>
-              <h3 className="text-lg leading-snug">{t.skills.certificationLabel}</h3>
-              <p className="text-sm text-[var(--text-muted)]">{t.skills.certificationIssuer}</p>
+              {certifications.map((cert) => (
+                <div key={cert.id} className="flex flex-col gap-1">
+                  <h3 className="text-lg leading-snug">{pick(cert.label, lang)}</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{pick(cert.issuer, lang)}</p>
+                  {cert.year ? (
+                    <span className="label mono-isolate">
+                      {t.skills.issued} {pick(cert.year, lang)}
+                    </span>
+                  ) : null}
+                </div>
+              ))}
             </div>
-            <span className="label mono-isolate">
-              {t.skills.issued} {t.skills.certificationYear}
-            </span>
           </article>
 
           <article className="card flex flex-col gap-3 p-6 sm:p-7 lg:col-span-3" data-reveal>

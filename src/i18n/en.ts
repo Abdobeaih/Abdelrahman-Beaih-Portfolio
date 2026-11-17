@@ -3,9 +3,9 @@ import type { Dict } from './types';
 /** English UI dictionary (default language). */
 export const en: Dict = {
   meta: {
-    title: 'Abdelrahman Beaih — Front-End & MERN Stack Developer',
+    title: 'Abdelrahman Beaih — Full-Stack MERN Developer',
     description:
-      'Junior Front-End / MERN Stack Developer in Cairo, Egypt. Building responsive, component-based web apps with React, TypeScript, Node.js and MongoDB.',
+      'Full-Stack MERN Developer in Cairo, Egypt, building production-ready web apps and RESTful APIs with React, TypeScript, Node.js and MongoDB. Currently onsite at SpecTech on Nawy Orders.',
   },
   nav: {
     home: 'Home',
@@ -23,14 +23,14 @@ export const en: Dict = {
     switchTo: 'Switch language to Arabic',
   },
   hero: {
-    eyebrow: 'Junior Front-End / MERN Developer',
+    eyebrow: 'Full-Stack MERN Developer',
     greeting: "Hi, I'm",
-    valueLine: 'I turn ideas into fast, accessible interfaces.',
-    paragraphLead: 'Front-End and MERN developer building responsive, component-based apps with',
+    valueLine: 'I build production-ready interfaces and APIs, end to end.',
+    paragraphLead: 'Full-Stack MERN developer building responsive, component-based apps with',
     paragraphMid: 'React, TypeScript, Node.js and MongoDB',
     paragraphTail:
-      'I contributed to a live product with 10,000+ monthly users and helped cut API data-fetch latency by 30%. Currently freelancing, building bilingual Arabic/English RTL platforms.',
-    availability: 'Open to Junior Front-End / React / MERN roles — Egypt, the Gulf or remote',
+      'Currently onsite at SpecTech on Nawy Orders, a restaurant-ordering SaaS platform. I contributed to a live product with 10,000+ monthly users and helped cut API data-fetch latency by 30%, and I specialise in bilingual Arabic/English RTL interfaces.',
+    availability: 'Open to Full-Stack / Front-End / React / MERN roles — Egypt, the Gulf or remote',
     ctaResume: 'Resume',
     ctaTalk: "Let's talk",
   },
@@ -57,7 +57,7 @@ export const en: Dict = {
     eyebrow: 'Selected work',
     title: 'Projects I have built',
     subtitle:
-      'Five projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
+      'Six projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
     viewLive: 'Live',
     viewCode: 'Code',
     details: 'Details',
@@ -82,18 +82,17 @@ export const en: Dict = {
       backend: 'Backend',
       databases: 'Databases',
       tools: 'Tools',
-      practices: 'Practices',
+      competencies: 'Core Competencies',
+      ai: 'AI Tools',
     },
-    certificationTitle: 'Certification',
-    certificationLabel: 'UI/UX & Front-End Web Development',
-    certificationIssuer: 'Issued by NTI',
-    certificationYear: '2025',
+    certificationTitle: 'Certifications',
     issued: 'Issued',
   },
   timeline: {
     eyebrow: 'Experience',
     title: 'Where I have worked',
-    subtitle: 'Four roles that grew from electrical engineering into front-end and the MERN stack.',
+    subtitle:
+      'Five roles that grew from electrical engineering into full-stack MERN development.',
     more: 'More',
     less: 'Less',
     present: 'Present',
@@ -107,7 +106,7 @@ export const en: Dict = {
     eyebrow: 'Community & education',
     title: 'Learning, teaching, building in public',
     subtitle:
-      'A certification, a degree and a toolkit that keeps expanding — here is what sits behind the work.',
+      'Two certifications, a degree and a toolkit that keeps expanding — here is what sits behind the work.',
     marqueeLabel: 'Technologies and practices I work with',
   },
   philosophy: {
@@ -140,7 +139,7 @@ export const en: Dict = {
     eyebrow: 'Contact',
     title: "Let's build something together",
     subtitle:
-      'Open to Junior Front-End / React / MERN roles in Egypt, the Gulf (UAE/KSA) or remote. The fastest way to reach me is email.',
+      'Open to Full-Stack / Front-End / React / MERN roles in Egypt, the Gulf (UAE/KSA) or remote. The fastest way to reach me is email.',
     copy: 'Copy email',
     copied: 'Copied!',
     email: 'Email',
@@ -154,7 +153,7 @@ export const en: Dict = {
     openCard: 'Open',
   },
   footer: {
-    tagline: 'Front-End / MERN Stack Developer building fast, accessible, bilingual interfaces.',
+    tagline: 'Full-Stack MERN Developer building fast, accessible, bilingual interfaces.',
     explore: 'Explore',
     connect: 'Connect',
     rights: 'All rights reserved.',
@@ -170,40 +169,53 @@ export const en: Dict = {
     opensNewTab: 'opens in a new tab',
   },
   projectContent: {
-    'car-care': {
-      tagline: 'A full-stack booking platform for mobile car-wash services.',
+    'nawy-orders': {
+      tagline: 'A restaurant-ordering SaaS platform where venues take orders commission-free.',
       overview:
-        'Mobile Car Care connects customers with on-demand car-wash services. I built the front-end experience and API layer across a Next.js client and a NestJS backend backed by MongoDB.',
-      role: 'Front-end & API development',
+        'Nawy Orders by SpecTech gives restaurants and cafés their own branded ordering website, progressive web app and Android/iOS apps, so they receive orders directly and manage everything from one dashboard. I build full-stack features across the order flow, menu and item management, and admin reporting.',
+      role: 'Full-Stack MERN Developer at SpecTech',
       highlights: [
-        'Responsive, component-based booking flow in React and Next.js',
-        'Typed end-to-end with TypeScript for safer refactors',
-        'NestJS REST API with MongoDB persistence',
-        'Deployed to Vercel with a clean, mobile-first layout',
+        'Full-stack features with React, Node.js/Express and MongoDB',
+        'Order flow, menu and item management, and the admin dashboard',
+        'Admin reporting for orders, sales and daily reports',
+        'Bilingual Arabic/English interfaces delivered in Agile sprints',
+      ],
+    },
+    'car-care': {
+      tagline: 'A full-stack booking platform where car care comes to the customer.',
+      overview:
+        'Mobile Car Care is a monorepo booking platform: a Next.js App Router front end in TypeScript and a NestJS + MongoDB REST API. Customers book a service, vehicle, add-ons, location, date and time, while the server calculates availability from working hours and service duration.',
+      role: 'Full-stack development — front end and API',
+      highlights: [
+        'Multi-step booking flow with server-side pricing and availability',
+        'Overlap checks reject double bookings with HTTP 409',
+        'JWT authentication with Passport and bcrypt, plus role-based guards for customers and admins',
+        'Customer and admin dashboards, Jest unit tests and serverless deployment on Vercel',
       ],
     },
     mustakileen: {
-      tagline: 'A MERN application built around a real user workflow.',
+      tagline: 'A full-stack Arabic/English freelancer-benefits platform.',
       overview:
-        'Mustakileen is a MERN stack project covering the full loop — React on the front, Express and Node on the back, MongoDB for storage. It demonstrates authenticated, data-driven features end to end.',
+        'Mustakileen pairs a React front end with an Express/MongoDB REST API across 17 route modules covering users, companies, admins, discounts, subscription plans, payments, installments, reviews and notifications.',
       role: 'Full-stack MERN development',
       highlights: [
-        'React front-end with reusable components',
-        'Express/Node REST API and MongoDB models',
-        'Authentication and protected routes',
-        'Live deployment with separate front-end and API',
+        'JWT authentication, bcrypt hashing and RBAC for user, company and admin accounts',
+        'Helmet, CORS, rate limiting and OTP email verification',
+        'Discount approval workflow with tier-based access across free, premium and elite plans',
+        'React Query caching, Zustand state, React Hook Form + Zod and 46 lazy-loaded routes',
+        'Database indexes, aggregation pipelines, lean queries, compression and cache headers',
       ],
     },
     'karam-el-sham': {
-      tagline: 'A responsive restaurant site with a warm, editorial feel.',
+      tagline: 'An Arabic RTL restaurant ordering front end.',
       overview:
-        'Karam El Sham is a restaurant showcase built with React and TypeScript. The focus is on a polished, responsive presentation of the menu and brand across every screen size.',
+        'Karam El Sham is a React 19 restaurant ordering experience with live search, category filtering and dish cards that show whether an item is already in the cart.',
       role: 'Front-end development',
       highlights: [
-        'React and TypeScript component architecture',
-        'Responsive layout tuned for mobile-first',
-        'Clean typography and menu presentation',
-        'Deployed and publicly available',
+        'React 19 with Redux Toolkit and React Router',
+        'Live search and category filtering with API-loaded food images and a fallback',
+        'Shopping cart with add, remove, quantity and totals, persisted to localStorage',
+        'Arabic toast notifications, Tailwind CSS and client-side routing on Vercel',
       ],
     },
     'amazon-clone': {
@@ -232,27 +244,39 @@ export const en: Dict = {
     },
   },
   experienceContent: {
+    spectech: {
+      role: 'Full-Stack MERN Developer',
+      company: 'SpecTech',
+      summary:
+        'Building Nawy Orders, a restaurant-ordering SaaS platform, onsite with the engineering team in Alexandria.',
+      bullets: [
+        'Build and support full-stack features with React, Node.js/Express and MongoDB',
+        'Ship responsive front ends and RESTful APIs for the order flow and menu management',
+        'Work on the admin dashboard for orders, sales and daily reports, with Arabic/English interfaces',
+        'Collaborate in Agile sprints using Jira, Git/GitHub workflows and code reviews',
+      ],
+    },
     freelance: {
       role: 'Freelance MERN Stack Developer',
       company: 'Self-Employed',
       summary:
-        'Building production web apps for clients with a focus on bilingual Arabic/English platforms.',
+        'Building full-stack MERN applications for Egyptian and Arab-market clients, with a focus on bilingual Arabic/English platforms.',
       bullets: [
-        'Design and build bilingual Arabic/English RTL interfaces',
-        'Deliver full-stack features with React, TypeScript and MERN',
-        'Own projects end to end, from UI to deployment',
+        'Built an Arabic RTL freelancer-benefits platform with tiered memberships, referrals and points',
+        'Converted a browser-only freelancer platform into a full MERN stack with Supabase auth, row-level security and real-time subscriptions',
+        'Migrated an Arabic RTL freelancer services platform to Vite + React + React Router, reusing a component library and admin dashboard',
       ],
     },
     digilians: {
       role: 'MERN Stack Developer Trainee',
       company: 'Digilians',
       summary:
-        'Worked on a live product serving more than 10,000 monthly users.',
+        'Developed responsive features and REST APIs for a live product used by 10,000+ monthly users.',
       bullets: [
-        'Contributed to a live product with 10,000+ monthly users',
-        'Helped cut API data-fetch latency by 30%',
-        'Built MERN features with React, Node.js and MongoDB',
-        'Collaborated on REST APIs and data modelling',
+        'Built responsive features with React, JavaScript, HTML5 and CSS3',
+        'Built Node.js and MongoDB REST APIs that reduced data-fetch latency by 30%',
+        'Improved performance with code splitting, lazy loading and caching',
+        'Collaborated with design and product teams',
       ],
     },
     nti: {
@@ -261,9 +285,9 @@ export const en: Dict = {
       summary:
         'Focused internship on UI/UX and front-end development, ending with a recognised certificate.',
       bullets: [
-        'Studied UI/UX principles and front-end development',
-        'Earned the UI/UX & Front-End Web Development certificate',
-        'Practised HTML5, CSS3 and responsive layout',
+        'Designed responsive pages with HTML5, CSS3 and JavaScript (ES6+), following mobile-first and WCAG principles',
+        'Improved UX flows with a cross-functional team and kept cross-browser compatibility across Chrome, Firefox and Edge',
+        'Participated in Agile sprint planning, daily stand-ups and code reviews',
       ],
     },
     hse: {

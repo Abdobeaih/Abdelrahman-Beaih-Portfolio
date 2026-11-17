@@ -174,16 +174,18 @@ export function ProjectModal({ project, onClose, onNavigate }: ProjectModalProps
             ) : (
               <span className="chip">{t.works.liveUnavailable}</span>
             )}
-            <a
-              href={project.code}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline"
-              aria-label={`${project.name} — ${t.works.viewCode}`}
-            >
-              <GitHubIcon width={16} height={16} />
-              {t.works.viewCode}
-            </a>
+            {project.code ? (
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                aria-label={`${project.name} — ${t.works.viewCode}`}
+              >
+                <GitHubIcon width={16} height={16} />
+                {t.works.viewCode}
+              </a>
+            ) : null}
           </div>
 
           <div className="mt-2 flex items-center justify-between gap-3 border-t border-[var(--border)] pt-5">
