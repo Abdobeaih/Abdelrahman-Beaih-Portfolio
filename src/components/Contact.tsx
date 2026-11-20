@@ -43,7 +43,7 @@ function ContactBase() {
     {
       key: 'linkedin',
       label: t.contact.linkedin,
-      value: 'in/abdelrhmanbeaih',
+      value: 'in/abdelrahman-beaih',
       href: profile.links.linkedin,
       Icon: LinkedInIcon,
       external: true,

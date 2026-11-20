@@ -57,7 +57,7 @@ export const en: Dict = {
     eyebrow: 'Selected work',
     title: 'Projects I have built',
     subtitle:
-      'Six projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
+      'Five projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
     viewLive: 'Live',
     viewCode: 'Code',
     details: 'Details',
@@ -216,18 +216,6 @@ export const en: Dict = {
         'Live search and category filtering with API-loaded food images and a fallback',
         'Shopping cart with add, remove, quantity and totals, persisted to localStorage',
         'Arabic toast notifications, Tailwind CSS and client-side routing on Vercel',
-      ],
-    },
-    'amazon-clone': {
-      tagline: 'A commerce UI reconstruction to sharpen state and layout skills.',
-      overview:
-        'A recreation of the Amazon shopping interface built with React and TypeScript. It exercises product grids, cart-style state and responsive layout — a deliberate practice project.',
-      role: 'Front-end practice project',
-      highlights: [
-        'React and TypeScript from the ground up',
-        'Component-driven product and cart UI',
-        'Responsive grid and layout work',
-        'Source publicly documented on GitHub',
       ],
     },
     'todo-list': {

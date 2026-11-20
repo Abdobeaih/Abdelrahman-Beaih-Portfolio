@@ -21,7 +21,7 @@ export const profile = {
   display: { en: 'Abdelrahman Beaih', ar: 'عبدالرحمن بيه' } as LocalizedText,
   email: 'abdobeaih43@gmail.com',
   phone: '+20 114 262 8174',
-  phoneE164: '+20114262817',
+  phoneE164: '+201142628174',
   location: { en: 'Cairo, Egypt', ar: 'القاهرة، مصر' } as LocalizedText,
   links: {
     linkedin: 'https://www.linkedin.com/in/abdelrahman-beaih/',
@@ -49,7 +49,7 @@ export interface Stat {
 export const stats: Stat[] = [
   { id: 'users', value: 10000, suffix: '+' },
   { id: 'latency', value: 30, suffix: '%' },
-  { id: 'projects', value: 6 },
+  { id: 'projects', value: 5 },
   { id: 'roles', value: 5 },
 ];
 
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     id: 'nawy-orders',
     name: 'Nawy Orders',
     stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'SaaS'],
-    live: 'https://drive.google.com/drive/u/0/folders/1Mbqp9763t9tQYNsOHkvQkHJu8HyKVaw3',
+    live: 'https://www.nawyorders.com/en',
     image: '/nawy-orders.jpg',
     monogram: 'NO',
     accentIndex: 5,
@@ -107,15 +107,6 @@ export const projects: Project[] = [
     image: '/karam-el-sham.jpg',
     monogram: 'KS',
     accentIndex: 2,
-  },
-  {
-    id: 'amazon-clone',
-    name: 'Amazon Clone',
-    stack: ['React', 'TypeScript'],
-    code: 'https://github.com/Abdobeaih/Githup-Project',
-    image: '/Amazon.jfif',
-    monogram: 'AZ',
-    accentIndex: 3,
   },
   {
     id: 'todo-list',
