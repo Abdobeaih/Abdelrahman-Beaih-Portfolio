@@ -56,7 +56,7 @@ export const ar: Dict = {
   works: {
     eyebrow: 'أعمال مختارة',
     title: 'مشاريع بنيتها',
-    subtitle: 'ستة مشاريع تجمع بين React و TypeScript ومنظومة MERN الكاملة. افتح أي بطاقة لرؤية التفاصيل.',
+    subtitle: 'ثمانية مشاريع تجمع بين React و TypeScript ومنظومة MERN الكاملة. افتح أي بطاقة لرؤية التفاصيل.',
     viewLive: 'مباشر',
     viewCode: 'الكود',
     details: 'التفاصيل',
@@ -86,6 +86,10 @@ export const ar: Dict = {
     },
     certificationTitle: 'الشهادات',
     issued: 'صادرة عام',
+    tickerLabel: 'شريط التقنيات',
+    terminalTitle: 'abdelrahman@portfolio: ~/stack',
+    terminalLive: 'مباشر',
+    terminalLabel: 'طرفية متحركة تصف المنظومة التقنية',
   },
   timeline: {
     eyebrow: 'الخبرة',

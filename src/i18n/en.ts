@@ -57,7 +57,7 @@ export const en: Dict = {
     eyebrow: 'Selected work',
     title: 'Projects I have built',
     subtitle:
-      'Six projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
+      'Eight projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
     viewLive: 'Live',
     viewCode: 'Code',
     details: 'Details',
@@ -87,6 +87,10 @@ export const en: Dict = {
     },
     certificationTitle: 'Certifications',
     issued: 'Issued',
+    tickerLabel: 'Technology ticker',
+    terminalTitle: 'abdelrahman@portfolio: ~/stack',
+    terminalLive: 'live',
+    terminalLabel: 'Animated terminal describing my stack',
   },
   timeline: {
     eyebrow: 'Experience',

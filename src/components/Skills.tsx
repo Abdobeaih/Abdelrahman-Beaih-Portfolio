@@ -1,15 +1,19 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { useLang } from '../i18n/context';
 import { certifications, pick, skillGroups } from '../data/cv';
 import { SectionHeading } from './SectionHeading';
 import { TechChip } from './TechChip';
+import { Marquee } from './Marquee';
+import { StackTerminal } from './StackTerminal';
 import { useReveal } from '../hooks/useReveal';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import { CodeIcon } from './icons/tech';
 import { skillGroupIcons } from '../lib/techIcons';
 
 function SkillsBase() {
   const { t, lang } = useLang();
   const revealRef = useReveal<HTMLDivElement>();
+  const reduced = useReducedMotion();
 
   const groups = useMemo(
     () =>
@@ -20,6 +24,22 @@ function SkillsBase() {
     [t],
   );
 
+  // Split every skill across two opposing ticker rows.
+  const tickerRows = useMemo(() => {
+    const all = skillGroups.flatMap((group) => group.items);
+    const half = Math.ceil(all.length / 2);
+    return [all.slice(0, half), all.slice(half)];
+  }, []);
+
+  // A spotlight that walks one chip at a time around each group card,
+  // offset per card so the section shimmers instead of blinking in sync.
+  const [pulse, setPulse] = useState(0);
+  useEffect(() => {
+    if (reduced) return undefined;
+    const id = setInterval(() => setPulse((p) => p + 1), 1300);
+    return () => clearInterval(id);
+  }, [reduced]);
+
   return (
     <section className="section-flow section-y border-t border-[var(--border)]">
       <div className="shell">
@@ -29,9 +49,20 @@ function SkillsBase() {
           accent={t.skills.title.split(' ').slice(-1)[0]}
           subtitle={t.skills.subtitle}
         />
+      </div>
 
-        <div ref={revealRef} className="mt-12 grid gap-6 lg:grid-cols-3">
-          {groups.map((group) => {
+      <div className="mt-10 flex flex-col gap-3" data-reveal>
+        <Marquee items={tickerRows[0]} ariaLabel={t.skills.tickerLabel} />
+        <Marquee items={tickerRows[1]} ariaLabel={t.skills.tickerLabel} reverse />
+      </div>
+
+      <div className="shell">
+        <div ref={revealRef} className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-3" data-reveal>
+            <StackTerminal />
+          </div>
+
+          {groups.map((group, groupIndex) => {
             const GroupIcon = skillGroupIcons[group.id] ?? CodeIcon;
             return (
               <article key={group.id} className="card card-hover flex flex-col gap-5 p-6 sm:p-7" data-reveal>
@@ -42,8 +73,16 @@ function SkillsBase() {
                   {group.title}
                 </h3>
                 <ul className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <TechChip key={item} label={item} />
+                  {group.items.map((item, itemIndex) => (
+                    <TechChip
+                      key={item}
+                      label={item}
+                      className={
+                        (pulse + groupIndex * 2) % group.items.length === itemIndex
+                          ? 'chip-spotlit'
+                          : undefined
+                      }
+                    />
                   ))}
                 </ul>
               </article>

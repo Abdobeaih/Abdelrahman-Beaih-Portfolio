@@ -33,11 +33,23 @@ function WorksBase() {
           {projects.map((project, index) => {
             const content = t.projectContent[project.id];
             return (
-              <article key={project.id} className="card card-hover group flex flex-col overflow-hidden" data-reveal>
+              <article
+                key={project.id}
+                className="card card-hover works-card group relative flex flex-col overflow-hidden"
+                data-reveal
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+                  e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
+                }}
+              >
+                <span className="works-watermark mono-isolate" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <button
                   type="button"
                   onClick={() => open(index)}
-                  className="block w-full text-start"
+                  className="cover-wrap block w-full text-start"
                   aria-label={`${t.works.details} — ${project.name}`}
                 >
                   <ProjectCover

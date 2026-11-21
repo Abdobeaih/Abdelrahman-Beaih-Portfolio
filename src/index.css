@@ -849,3 +849,279 @@
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Live stack terminal (Skills) — a session that types itself, loops forever.
+   -------------------------------------------------------------------------- */
+.term {
+  direction: ltr;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  background: linear-gradient(180deg, #0d0d10, #0a0a0c);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 60px -32px rgba(0, 0, 0, 0.8);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.term-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.term-title {
+  margin-inline-start: 0.5rem;
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  color: var(--text-faint);
+}
+
+.term-live {
+  margin-inline-start: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  color: var(--accent);
+}
+
+.term-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-pulse 1.6s ease-in-out infinite;
+}
+
+.term-body {
+  min-height: 13.5rem;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.term-prompt {
+  color: var(--accent);
+}
+
+.term-cmd {
+  color: var(--text);
+}
+
+.term-out {
+  color: var(--text-muted);
+  padding-inline-start: 1rem;
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-inline-start: 2px;
+  vertical-align: -0.15em;
+  background: var(--accent);
+  animation: term-blink 1s steps(1) infinite;
+}
+
+@keyframes term-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Second ticker row runs backwards and slower. */
+.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 44s;
+}
+
+/* Walking chip spotlight inside each skill group card. */
+.chip {
+  transition:
+    color 500ms ease,
+    background-color 500ms ease,
+    border-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+.chip.chip-spotlit {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 0 14px -2px var(--accent-glow);
+}
+
+/* --------------------------------------------------------------------------
+   Works cards — cursor spotlight, lift, cover sheen, index watermark.
+   -------------------------------------------------------------------------- */
+.works-card {
+  will-change: transform;
+}
+
+.works-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    var(--accent-soft),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease-hover);
+  pointer-events: none;
+}
+
+.works-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow:
+    0 22px 44px -20px rgba(0, 0, 0, 0.75),
+    0 0 0 1px var(--accent-soft);
+}
+
+.works-card:hover::before {
+  opacity: 1;
+}
+
+.works-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.works-card .cover-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.works-card .cover-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.09) 50%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.works-card:hover .cover-wrap::after {
+  transform: translateX(130%);
+}
+
+.works-watermark {
+  position: absolute;
+  bottom: 0.9rem;
+  inset-inline-end: 1.1rem;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 3.25rem;
+  line-height: 1;
+  color: var(--text-faint);
+  opacity: 0.14;
+  transition: opacity var(--dur-hover) var(--ease-hover);
+  pointer-events: none;
+}
+
+.works-card:hover .works-watermark {
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term-cursor,
+  .term-live-dot {
+    animation: none;
+  }
+  .works-card:hover {
+    transform: none;
+  }
+  .works-card .cover-wrap::after {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Portrait (about) — photo used as-is; the frame does the talking.
+   -------------------------------------------------------------------------- */
+.portrait-frame {
+  position: relative;
+  justify-self: center;
+  width: min(330px, 82%);
+  padding: 10px;
+  border-radius: 30px;
+  background: linear-gradient(
+    160deg,
+    var(--accent) 0%,
+    transparent 42%,
+    transparent 58%,
+    var(--accent) 100%
+  );
+  box-shadow: 0 34px 80px -34px rgba(0, 0, 0, 0.85);
+  transition:
+    transform var(--dur-hover) var(--ease-hover),
+    box-shadow var(--dur-hover) var(--ease-hover);
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: -46px;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 28%, var(--accent-glow), transparent 65%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.portrait-frame:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 44px 90px -34px rgba(0, 0, 0, 0.9);
+}
+
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
+
+.portrait-caption {
+  position: absolute;
+  bottom: -0.95rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-frame:hover {
+    transform: none;
+  }
+}

@@ -5,17 +5,19 @@ interface MarqueeProps {
   items: string[];
   /** Visible copy of the label for screen readers. */
   ariaLabel: string;
+  /** Run the loop in the opposite direction, slightly slower. */
+  reverse?: boolean;
 }
 
 /**
  * Infinite horizontal keyword loop. The track is duplicated once and translated
  * -50% via CSS keyframes; hover pauses it. Purely decorative for AT.
  */
-export const Marquee = memo(function Marquee({ items, ariaLabel }: MarqueeProps) {
+export const Marquee = memo(function Marquee({ items, ariaLabel, reverse }: MarqueeProps) {
   const track = [...items, ...items];
   return (
     <div className="marquee relative overflow-hidden py-2" role="group" aria-label={ariaLabel}>
-      <div className="marquee-track gap-3">
+      <div className={`marquee-track gap-3${reverse ? ' marquee-reverse' : ''}`}>
         {track.map((item, index) => (
           <TechChip
             key={`${item}-${index}`}

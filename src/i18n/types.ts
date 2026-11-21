@@ -87,6 +87,10 @@ export interface Dict {
     };
     certificationTitle: string;
     issued: string;
+    tickerLabel: string;
+    terminalTitle: string;
+    terminalLive: string;
+    terminalLabel: string;
   };
   timeline: {
     eyebrow: string;
