@@ -14,6 +14,10 @@
           }
           document.documentElement.lang = l;
           document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+          var th = localStorage.getItem('ab-theme');
+          if (th === 'light' || th === 'dark') {
+            document.documentElement.setAttribute('data-theme', th);
+          }
         } catch (e) {
           /* ignore */
         }

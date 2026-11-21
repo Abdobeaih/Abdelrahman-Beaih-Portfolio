@@ -54,6 +54,22 @@
   }
 }
 
+/* Light theme — warm paper with the same gold identity, darkened for AA. */
+:root[data-theme='light'] {
+  --bg: #f6f4ed; /* warm paper */
+  --bg-elevated: #fffdf8;
+  --bg-soft: #edeae0;
+  --border: rgba(23, 23, 26, 0.1);
+  --border-strong: rgba(23, 23, 26, 0.2);
+  --text: #17171a;
+  --text-muted: #52525a;
+  --text-faint: #68686f; /* 4.6:1 on --bg */
+  --accent: #9c7a12; /* deep gold, readable on paper */
+  --accent-soft: rgba(156, 122, 18, 0.12);
+  --accent-glow: rgba(156, 122, 18, 0.3);
+  --focus: #7a5f0c;
+}
+
 /* Arabic typography swaps: sans display, no tight tracking. */
 :root[dir='rtl'],
 html[dir='rtl'] {

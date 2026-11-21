@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { useLang } from './i18n/context';
 import { Navbar } from './components/Navbar';
+import { PullCord } from './components/PullCord';
 import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { DeferSection } from './components/DeferSection';
@@ -38,6 +39,7 @@ export function App() {
       <div className="grain-overlay" aria-hidden="true" />
 
       <Navbar />
+      <PullCord />
 
       <main id="main">
         <Hero />
