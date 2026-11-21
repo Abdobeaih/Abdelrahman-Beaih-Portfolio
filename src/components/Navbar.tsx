@@ -81,11 +81,11 @@ function NavbarBase() {
           onClick={handleNavClick}
         >
           <img
-            src="/Desktop_-_15.webp"
+            src="/brand/ab-mark.svg"
             alt=""
-            width={1024}
-            height={963}
-            className="h-9 w-auto sm:h-10"
+            width={120}
+            height={120}
+            className="h-8 w-auto sm:h-9"
           />
         </a>
 
