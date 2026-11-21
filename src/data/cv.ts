@@ -49,7 +49,7 @@ export interface Stat {
 export const stats: Stat[] = [
   { id: 'users', value: 10000, suffix: '+' },
   { id: 'latency', value: 30, suffix: '%' },
-  { id: 'projects', value: 6 },
+  { id: 'projects', value: 8 },
   { id: 'roles', value: 5 },
 ];
 
@@ -117,6 +117,26 @@ export const projects: Project[] = [
     image: '/amazon-clone.png',
     monogram: 'AZ',
     accentIndex: 3,
+  },
+  {
+    id: 'movies',
+    name: 'Movies App',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS'],
+    live: 'https://abdobeaih.github.io/Movies/',
+    code: 'https://github.com/Abdobeaih/Movies',
+    image: '/movies.jpg',
+    monogram: 'MV',
+    accentIndex: 5,
+  },
+  {
+    id: 'viva-decor',
+    name: 'Viva Decor',
+    stack: ['HTML5', 'CSS3', 'JavaScript'],
+    live: 'https://abdobeaih.github.io/Vive-Decor/',
+    code: 'https://github.com/Abdobeaih/Vive-Decor',
+    image: '/viva-decor.jpg',
+    monogram: 'VD',
+    accentIndex: 6,
   },
   {
     id: 'todo-list',

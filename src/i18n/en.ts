@@ -230,6 +230,30 @@ export const en: Dict = {
         'Product sliders, loading and error states, deployed on Vercel',
       ],
     },
+    'movies': {
+      tagline: 'A cinematic movies landing page with a bold, dark visual design.',
+      overview:
+        'A fully responsive movies landing page built with vanilla HTML, CSS and JavaScript with Tailwind: hero showcase, movies grid, coming-soon section and newsletter, with scroll-triggered header effects, a mobile menu and smooth anchor navigation. No framework, no build step - pure front-end fundamentals.',
+      role: 'Front-end practice project',
+      highlights: [
+        'Responsive layout with Tailwind CSS utility classes',
+        'Scroll-aware sticky header and mobile navigation',
+        'Sectioned landing page: hero, movies, coming soon, newsletter',
+        'Self-contained static site, deployed on GitHub Pages',
+      ],
+    },
+    'viva-decor': {
+      tagline: 'An elegant interior-design landing page with scroll animations.',
+      overview:
+        'A landing page for an interior design studio, built with vanilla HTML, CSS and JavaScript: hero, services, contact and support sections with IntersectionObserver scroll animations and a mobile menu. Clean typography-driven layout with large imagery, deployed on GitHub Pages.',
+      role: 'Front-end practice project',
+      highlights: [
+        'Scroll animations with the IntersectionObserver API',
+        'Typography-led layout with full-width imagery',
+        'Responsive sections: services, features, contact, support',
+        'Self-contained static site, deployed on GitHub Pages',
+      ],
+    },
     'todo-list': {
       tagline: 'A focused task app — the fundamentals done cleanly.',
       overview:
