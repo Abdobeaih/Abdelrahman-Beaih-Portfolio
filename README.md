@@ -4,11 +4,11 @@ A single-page, journey-driven portfolio for **Abdelrahman Beaih**, Junior Front-
 The signature feature is an **interactive 8-station journey map** that tells the career story from 2020 to now.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Abdobeaih-181717?logo=github)](https://github.com/Abdobeaih)
-[![Repo](https://img.shields.io/badge/Repository-source-5CCB7A?logo=github&logoColor=white)](https://github.com/Abdobeaih/YOUR-REPO-NAME)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-abdelrhmanbeaih-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdelrhmanbeaih)
+[![Repo](https://img.shields.io/badge/Repository-source-5CCB7A?logo=github&logoColor=white)](https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-abdelrahman-beaih-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdelrahman-beaih)
 
 - **GitHub:** [github.com/Abdobeaih](https://github.com/Abdobeaih)
-- **Source code:** `https://github.com/Abdobeaih/YOUR-REPO-NAME` <!-- TODO: replace YOUR-REPO-NAME with the real repository name (search and replace all occurrences in this file) -->
+- **Source code:** `https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio` <!-- TODO: replace Abdelrahman-Beaih-Portfolio with the real repository name (search and replace all occurrences in this file) -->
 
 ## Stack
 
@@ -23,8 +23,8 @@ The signature feature is an **interactive 8-station journey map** that tells the
 ## Getting started
 
 ```bash
-git clone https://github.com/Abdobeaih/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
+git clone https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio.git
+cd Abdelrahman-Beaih-Portfolio
 npm install
 npm run dev       # start the dev server (http://localhost:5173)
 npm run build     # type-check + production build to dist/
@@ -51,9 +51,9 @@ src/
 
 ## Deploy to Vercel
 
-1. Push the repository to GitHub (`https://github.com/Abdobeaih/YOUR-REPO-NAME`):
+1. Push the repository to GitHub (`https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio`):
    ```bash
-   git remote add origin https://github.com/Abdobeaih/YOUR-REPO-NAME.git
+   git remote add origin https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio.git
    git branch -M main
    git push -u origin main
    ```
@@ -114,7 +114,7 @@ Verified with Lighthouse (mobile, simulated throttling): **Performance 93, Acces
 **Abdelrahman Beaih** — Junior Front-End / MERN Stack Developer, Cairo, Egypt
 
 - GitHub: [github.com/Abdobeaih](https://github.com/Abdobeaih)
-- LinkedIn: [linkedin.com/in/abdelrhmanbeaih](https://www.linkedin.com/in/abdelrhmanbeaih)
+- LinkedIn: [linkedin.com/in/abdelrahman-beaih](https://www.linkedin.com/in/abdelrahman-beaih)
 - Email: [abdobeaih43@gmail.com](mailto:abdobeaih43@gmail.com)
 
-Issues and suggestions are welcome through [GitHub Issues](https://github.com/Abdobeaih/YOUR-REPO-NAME/issues).
+Issues and suggestions are welcome through [GitHub Issues](https://github.com/Abdobeaih/Abdelrahman-Beaih-Portfolio/issues).
