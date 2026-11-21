@@ -39,8 +39,19 @@ function WorksBase() {
                 data-reveal
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
-                  e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-                  e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  e.currentTarget.style.setProperty('--mx', `${x}px`);
+                  e.currentTarget.style.setProperty('--my', `${y}px`);
+                  // 3D tilt: max ~5deg, inverted on X so the card leans into the cursor.
+                  const px = x / rect.width - 0.5;
+                  const py = y / rect.height - 0.5;
+                  e.currentTarget.style.setProperty('--ry', `${(px * 10).toFixed(2)}deg`);
+                  e.currentTarget.style.setProperty('--rx', `${(-py * 10).toFixed(2)}deg`);
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('--rx', '0deg');
+                  e.currentTarget.style.setProperty('--ry', '0deg');
                 }}
               >
                 <span className="works-watermark mono-isolate" aria-hidden="true">

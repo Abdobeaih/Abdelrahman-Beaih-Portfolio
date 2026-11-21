@@ -965,8 +965,41 @@
 /* --------------------------------------------------------------------------
    Works cards — cursor spotlight, lift, cover sheen, index watermark.
    -------------------------------------------------------------------------- */
+@property --wc-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .works-card {
   will-change: transform;
+  transition: transform 240ms var(--ease-hover);
+}
+
+/* rotating gold border ring, revealed on hover */
+.works-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--wc-angle),
+    transparent 0deg,
+    var(--accent-glow) 60deg,
+    var(--accent) 120deg,
+    var(--accent-glow) 180deg,
+    transparent 240deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms var(--ease-hover);
+  pointer-events: none;
 }
 
 .works-card::before {
@@ -986,11 +1019,33 @@
 }
 
 .works-card:hover {
-  transform: translateY(-6px);
+  transform: perspective(1000px) translateY(-6px) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
   border-color: var(--border-strong);
   box-shadow:
     0 22px 44px -20px rgba(0, 0, 0, 0.75),
     0 0 0 1px var(--accent-soft);
+}
+
+.works-card:hover::after {
+  opacity: 1;
+  animation: works-ring-spin 3.2s linear infinite;
+}
+
+@keyframes works-ring-spin {
+  to {
+    --wc-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .works-card:hover {
+    transform: none;
+  }
+
+  .works-card:hover::after {
+    animation: none;
+  }
 }
 
 .works-card:hover::before {
