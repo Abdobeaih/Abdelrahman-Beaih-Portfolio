@@ -92,7 +92,7 @@ export const projects: Project[] = [
     id: 'mustakileen',
     name: 'Mustakileen',
     stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Zustand'],
-    live: 'https://frontend-project-ed-xrvo.vercel.app',
+    live: 'https://mustakilen.vercel.app',
     code: 'https://github.com/Abdobeaih/mustakileen',
     image: '/mustakileen-freelancer360.jpg',
     monogram: 'MK',
