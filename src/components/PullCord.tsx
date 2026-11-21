@@ -10,9 +10,9 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
  * or off (dark mode), with a springy recoil. Dark+gold stays the default.
  */
 
-const REST = 46; // px — cord length at rest
+const REST = 88; // px — cord length at rest
 const SNAP = 44; // px — extra pull needed to trigger
-const MAX = 96; // px — hard stop for the stretch
+const MAX = 170; // px — hard stop for the stretch
 
 function PullCordBase() {
   const [theme, setTheme] = useState<Theme>('dark');

@@ -10,6 +10,7 @@ import {
   ArrowUpRightIcon,
 } from './icons';
 import { JourneyMap } from './JourneyMap';
+import { StackRotator } from './StackRotator';
 import { mailtoHref, resumeHref, resumeIsExternal } from '../lib/links';
 
 interface SocialLink {
@@ -56,6 +57,8 @@ function HeroBase() {
             </span>
             {profile.display[lang]}
           </h1>
+
+          <StackRotator />
 
           <p
             className="hero-in max-w-xl text-lg text-[var(--text)] sm:text-xl"

@@ -27,6 +27,7 @@ export interface Dict {
   hero: {
     eyebrow: string;
     greeting: string;
+    stackLabel: string;
     valueLine: string;
     paragraphLead: string;
     paragraphMid: string;

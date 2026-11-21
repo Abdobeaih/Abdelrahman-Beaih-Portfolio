@@ -25,6 +25,7 @@ export const ar: Dict = {
   hero: {
     eyebrow: 'مطوّر Full-Stack MERN',
     greeting: 'أهلًا، أنا',
+    stackLabel: 'أبني بـ',
     valueLine: 'أبني واجهات وواجهات برمجية جاهزة للإنتاج من الطرفين.',
     paragraphLead: 'مطوّر Full-Stack MERN، أبني تطبيقات متجاوبة قائمة على المكوّنات باستخدام',
     paragraphMid: 'React و TypeScript و Node.js و MongoDB',

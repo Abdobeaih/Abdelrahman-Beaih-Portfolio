@@ -25,6 +25,7 @@ export const en: Dict = {
   hero: {
     eyebrow: 'Full-Stack MERN Developer',
     greeting: "Hi, I'm",
+    stackLabel: 'Building with',
     valueLine: 'I build production-ready interfaces and APIs, end to end.',
     paragraphLead: 'Full-Stack MERN developer building responsive, component-based apps with',
     paragraphMid: 'React, TypeScript, Node.js and MongoDB',
