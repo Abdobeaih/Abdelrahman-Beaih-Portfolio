@@ -49,7 +49,7 @@ export interface Stat {
 export const stats: Stat[] = [
   { id: 'users', value: 10000, suffix: '+' },
   { id: 'latency', value: 30, suffix: '%' },
-  { id: 'projects', value: 5 },
+  { id: 'projects', value: 6 },
   { id: 'roles', value: 5 },
 ];
 
@@ -107,6 +107,16 @@ export const projects: Project[] = [
     image: '/karam-el-sham.jpg',
     monogram: 'KS',
     accentIndex: 2,
+  },
+  {
+    id: 'amazon-clone',
+    name: 'Amazon Clone',
+    stack: ['Next.js 15', 'React 19', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS'],
+    live: 'https://amazon-clone-blush-three-24.vercel.app',
+    code: 'https://github.com/Abdobeaih/Amazon-Clon',
+    image: '/amazon-clone.png',
+    monogram: 'AZ',
+    accentIndex: 3,
   },
   {
     id: 'todo-list',

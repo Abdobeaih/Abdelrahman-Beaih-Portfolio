@@ -57,7 +57,7 @@ export const en: Dict = {
     eyebrow: 'Selected work',
     title: 'Projects I have built',
     subtitle:
-      'Five projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
+      'Six projects spanning React, TypeScript and the full MERN stack. Open a card for the details.',
     viewLive: 'Live',
     viewCode: 'Code',
     details: 'Details',
@@ -216,6 +216,18 @@ export const en: Dict = {
         'Live search and category filtering with API-loaded food images and a fallback',
         'Shopping cart with add, remove, quantity and totals, persisted to localStorage',
         'Arabic toast notifications, Tailwind CSS and client-side routing on Vercel',
+      ],
+    },
+    'amazon-clone': {
+      tagline: 'A full Amazon-style storefront rebuilt with Next.js and Redux Toolkit.',
+      overview:
+        'A recreation of the Amazon shopping experience as a production-style Next.js app: a 194-product catalog bundled with the app, live search, filters, product pages, a persistent cart and a checkout flow. Rebuilt and redeployed after the original third-party product API went offline.',
+      role: 'Full-stack front-end practice project',
+      highlights: [
+        'Next.js 15 App Router with React 19 and TypeScript',
+        'Redux Toolkit cart with localStorage persistence',
+        'Search, category and price filtering across 194 products',
+        'Product sliders, loading and error states, deployed on Vercel',
       ],
     },
     'todo-list': {
