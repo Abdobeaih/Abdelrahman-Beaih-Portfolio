@@ -119,6 +119,38 @@ function SkillsBase() {
                       </span>
                     ) : null}
                   </div>
+                  {cert.image ? (
+                    <a
+                      href={cert.verifyUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/cert mt-2 block"
+                      aria-label={`${pick(cert.label, lang)} — ${t.skills.verifyCertificate}`}
+                    >
+                      <span
+                        className="block overflow-hidden rounded-xl border transition-transform duration-500 group-hover/cert:-translate-y-1"
+                        style={{
+                          borderColor: 'color-mix(in srgb, var(--accent) 45%, transparent)',
+                          boxShadow:
+                            '0 18px 40px -18px rgba(0,0,0,.65), 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent), 0 0 42px -12px var(--accent-glow)',
+                        }}
+                      >
+                        <img
+                          src={cert.image}
+                          alt={pick(cert.label, lang)}
+                          loading="lazy"
+                          className="block w-full transition-transform duration-700 group-hover/cert:scale-[1.02]"
+                        />
+                      </span>
+                      <span
+                        className="label mono-isolate mt-3 inline-flex items-center gap-2"
+                        style={{ color: 'var(--accent)' }}
+                      >
+                        {t.skills.verifyCertificate}
+                        <span aria-hidden="true">↗</span>
+                      </span>
+                    </a>
+                  ) : null}
                 </div>
               ))}
             </div>

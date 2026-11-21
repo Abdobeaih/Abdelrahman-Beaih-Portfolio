@@ -214,6 +214,10 @@ export interface Certification {
   label: LocalizedText;
   issuer: LocalizedText;
   year?: LocalizedText;
+  /** Certificate artwork shown as a framed showcase image. */
+  image?: string;
+  /** Official verification URL opened when the image is clicked. */
+  verifyUrl?: string;
 }
 
 export const certifications: Certification[] = [
@@ -224,6 +228,9 @@ export const certifications: Certification[] = [
       ar: 'شهادة Meta الاحترافية لمطوّري الواجهات الأمامية',
     },
     issuer: { en: 'Meta (Coursera)', ar: 'Meta (Coursera)' },
+    year: { en: '2026', ar: '٢٠٢٦' },
+    image: '/meta-frontend-certificate.webp',
+    verifyUrl: 'https://coursera.org/verify/professional-cert/3TONB9QOS6RP',
   },
   {
     id: 'nti-uiux',

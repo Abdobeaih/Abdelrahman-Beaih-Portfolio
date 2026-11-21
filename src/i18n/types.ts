@@ -87,6 +87,7 @@ export interface Dict {
     };
     certificationTitle: string;
     issued: string;
+    verifyCertificate: string;
     tickerLabel: string;
     terminalTitle: string;
     terminalLive: string;

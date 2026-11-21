@@ -87,6 +87,7 @@ export const en: Dict = {
     },
     certificationTitle: 'Certifications',
     issued: 'Issued',
+    verifyCertificate: 'Verify at Coursera',
     tickerLabel: 'Technology ticker',
     terminalTitle: 'abdelrahman@portfolio: ~/stack',
     terminalLive: 'live',

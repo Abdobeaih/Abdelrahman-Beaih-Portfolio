@@ -86,6 +86,7 @@ export const ar: Dict = {
     },
     certificationTitle: 'الشهادات',
     issued: 'صادرة عام',
+    verifyCertificate: 'تحقّق على Coursera',
     tickerLabel: 'شريط التقنيات',
     terminalTitle: 'abdelrahman@portfolio: ~/stack',
     terminalLive: 'مباشر',
