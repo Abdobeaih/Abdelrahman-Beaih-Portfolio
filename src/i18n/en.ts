@@ -5,7 +5,7 @@ export const en: Dict = {
   meta: {
     title: 'Abdelrahman Beaih — Full-Stack MERN Developer',
     description:
-      'Full-Stack MERN Developer in Cairo, Egypt, building production-ready web apps and RESTful APIs with React, TypeScript, Node.js and MongoDB. Currently onsite at SpecTech on Nawy Orders.',
+      'Full-Stack MERN Developer in Cairo, Egypt, building production-ready web apps and RESTful APIs with React, TypeScript, Node.js and MongoDB. Currently onsite at SpaceTech on Nawy Orders.',
   },
   nav: {
     home: 'Home',
@@ -30,7 +30,7 @@ export const en: Dict = {
     paragraphLead: 'Full-Stack MERN developer building responsive, component-based apps with',
     paragraphMid: 'React, TypeScript, Node.js and MongoDB',
     paragraphTail:
-      'Currently onsite at SpecTech on Nawy Orders, a restaurant-ordering SaaS platform. I contributed to a live product with 10,000+ monthly users and helped cut API data-fetch latency by 30%, and I specialise in bilingual Arabic/English RTL interfaces.',
+      'Currently onsite at SpaceTech on Nawy Orders, a restaurant-ordering SaaS platform. I contributed to a live product with 10,000+ monthly users and helped cut API data-fetch latency by 30%, and I specialise in bilingual Arabic/English RTL interfaces.',
     availability: 'Open to Full-Stack / Front-End / React / MERN roles — Egypt, the Gulf or remote',
     ctaResume: 'Resume',
     ctaTalk: "Let's talk",
@@ -178,8 +178,8 @@ export const en: Dict = {
     'nawy-orders': {
       tagline: 'A restaurant-ordering SaaS platform where venues take orders commission-free.',
       overview:
-        'Nawy Orders by SpecTech gives restaurants and cafés their own branded ordering website, progressive web app and Android/iOS apps, so they receive orders directly and manage everything from one dashboard. I build full-stack features across the order flow, menu and item management, and admin reporting.',
-      role: 'Full-Stack MERN Developer at SpecTech',
+        'Nawy Orders by SpaceTech gives restaurants and cafés their own branded ordering website, progressive web app and Android/iOS apps, so they receive orders directly and manage everything from one dashboard. I build full-stack features across the order flow, menu and item management, and admin reporting.',
+      role: 'Full-Stack MERN Developer at SpaceTech',
       highlights: [
         'Full-stack features with React, Node.js/Express and MongoDB',
         'Order flow, menu and item management, and the admin dashboard',
@@ -276,7 +276,7 @@ export const en: Dict = {
   experienceContent: {
     spectech: {
       role: 'Full-Stack MERN Developer',
-      company: 'SpecTech',
+      company: 'SpaceTech',
       summary:
         'Building Nawy Orders, a restaurant-ordering SaaS platform, onsite with the engineering team in Alexandria.',
       bullets: [

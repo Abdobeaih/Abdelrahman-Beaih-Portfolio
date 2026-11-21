@@ -255,7 +255,7 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     id: 'spectech',
-    company: 'SpecTech',
+    company: 'SpaceTech',
     city: { en: 'Alexandria', ar: 'الإسكندرية' },
     start: { en: 'Jul 2026', ar: 'يوليو ٢٠٢٦' },
     end: { en: 'Present', ar: 'حتى الآن' },

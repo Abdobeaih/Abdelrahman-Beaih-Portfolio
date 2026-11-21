@@ -5,7 +5,7 @@ export const ar: Dict = {
   meta: {
     title: 'عبدالرحمن بيه — مطوّر Full-Stack MERN',
     description:
-      'مطوّر Full-Stack MERN في القاهرة، مصر، يبني تطبيقات ويب جاهزة للإنتاج وواجهات RESTful APIs باستخدام React وTypeScript وNode.js وMongoDB. يعمل حاليًا في SpecTech على Nawy Orders.',
+      'مطوّر Full-Stack MERN في القاهرة، مصر، يبني تطبيقات ويب جاهزة للإنتاج وواجهات RESTful APIs باستخدام React وTypeScript وNode.js وMongoDB. يعمل حاليًا في SpaceTech على Nawy Orders.',
   },
   nav: {
     home: 'الرئيسية',
@@ -30,7 +30,7 @@ export const ar: Dict = {
     paragraphLead: 'مطوّر Full-Stack MERN، أبني تطبيقات متجاوبة قائمة على المكوّنات باستخدام',
     paragraphMid: 'React و TypeScript و Node.js و MongoDB',
     paragraphTail:
-      'أعمل حاليًا في SpecTech على Nawy Orders، منصّة SaaS لطلب الطعام من المطاعم. شاركت في منتج حقيقي يخدم أكثر من ١٠٬٠٠٠ مستخدم شهريًا، وساهمت في خفض زمن جلب البيانات من الـ API بنسبة ٣٠٪، وأتخصّص في الواجهات ثنائية اللغة (عربي/إنجليزي) بدعم RTL.',
+      'أعمل حاليًا في SpaceTech على Nawy Orders، منصّة SaaS لطلب الطعام من المطاعم. شاركت في منتج حقيقي يخدم أكثر من ١٠٬٠٠٠ مستخدم شهريًا، وساهمت في خفض زمن جلب البيانات من الـ API بنسبة ٣٠٪، وأتخصّص في الواجهات ثنائية اللغة (عربي/إنجليزي) بدعم RTL.',
     availability: 'متاح لوظائف Full-Stack / Front-End / React / MERN — في مصر أو الخليج أو عن بُعد',
     ctaResume: 'السيرة الذاتية',
     ctaTalk: 'لنتحدّث',
@@ -175,8 +175,8 @@ export const ar: Dict = {
     'nawy-orders': {
       tagline: 'منصّة SaaS لطلب الطعام تتيح للمطاعم استقبال الطلبات دون عمولة.',
       overview:
-        'Nawy Orders من SpecTech يمنح المطاعم والمقاهي موقع طلب بهويتها، وتطبيق ويب تقدّمي (PWA)، وتطبيقات Android/iOS، فتستقبل الطلبات مباشرة وتدير كل شيء من لوحة واحدة. أعمل على ميزات متكاملة في مسار الطلبات وإدارة القائمة والأصناف ولوحة التقارير.',
-      role: 'مطوّر Full-Stack MERN في SpecTech',
+        'Nawy Orders من SpaceTech يمنح المطاعم والمقاهي موقع طلب بهويتها، وتطبيق ويب تقدّمي (PWA)، وتطبيقات Android/iOS، فتستقبل الطلبات مباشرة وتدير كل شيء من لوحة واحدة. أعمل على ميزات متكاملة في مسار الطلبات وإدارة القائمة والأصناف ولوحة التقارير.',
+      role: 'مطوّر Full-Stack MERN في SpaceTech',
       highlights: [
         'ميزات متكاملة بـ React وNode.js/Express وMongoDB',
         'مسار الطلبات وإدارة القائمة والأصناف ولوحة التحكم',
@@ -273,7 +273,7 @@ export const ar: Dict = {
   experienceContent: {
     spectech: {
       role: 'مطوّر Full-Stack MERN',
-      company: 'SpecTech',
+      company: 'SpaceTech',
       summary: 'أبني Nawy Orders، منصّة SaaS لطلب الطعام من المطاعم، داخل الفريق الهندسي في الإسكندرية.',
       bullets: [
         'بناء ودعم ميزات متكاملة بـ React وNode.js/Express وMongoDB',
