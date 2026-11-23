@@ -94,8 +94,60 @@
         }
       }
     </script>
-  </head>
+  
+    <style>
+      #ab-pl{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0F1317;transition:opacity .4s ease,transform .5s ease}
+      #ab-pl.ab-pl-out{opacity:0;transform:translateY(-4%);pointer-events:none}
+      #ab-pl .ab-pl-in{display:grid;place-items:center;gap:14px}
+      #ab-pl svg{width:clamp(84px,16vw,128px);height:auto}
+      #ab-pl .ab-pl-pct{color:#9aa4b2;font:600 15px/1.2 system-ui,sans-serif;letter-spacing:.35em}
+      #ab-pl .ab-pl-bar{width:min(200px,40vw);height:2px;background:#2a3138;overflow:hidden;border-radius:2px}
+      #ab-pl .ab-pl-bar i{display:block;height:100%;width:0;background:#d4af37;transition:width .25s ease}
+      @media (prefers-reduced-motion: reduce){#ab-pl{transition:opacity .2s ease}#ab-pl.ab-pl-out{transform:none}}
+    </style>
+</head>
   <body>
+    <div id="ab-pl" role="status" aria-label="Loading">
+      <div class="ab-pl-in">
+        <svg viewBox="0 0 120 120" fill="none" aria-label="AB logo"><path d="M14 96 L50 22 L60 40" stroke="#d4af37" stroke-width="7" stroke-linecap="square"/><path d="M60 40 L74 66 L74 96" stroke="#d4af37" stroke-width="7" stroke-linecap="square"/><path d="M60 40 H84 L94 50 L94 60 L84 68 H62 M84 68 L96 76 L96 88 L86 96 H74" stroke="#d4af37" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/><path d="M30 68 H74" stroke="#d4af37" stroke-width="7" stroke-linecap="square"/></svg>
+        <div class="ab-pl-pct"><span id="ab-pl-num">0</span>%</div>
+        <div class="ab-pl-bar"><i id="ab-pl-fill"></i></div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var pl = document.getElementById('ab-pl');
+        var seen = false;
+        try { seen = sessionStorage.getItem('abPlSeen') === '1'; sessionStorage.setItem('abPlSeen', '1'); } catch (e) {}
+        if (seen) { pl.parentNode && pl.parentNode.removeChild(pl); return; }
+        var num = document.getElementById('ab-pl-num'), fill = document.getElementById('ab-pl-fill');
+        var shown = 0, t0 = performance.now(), doneFlag = false;
+        function paint(v) {
+          v = Math.max(shown, Math.min(100, Math.round(v)));
+          shown = v; num.textContent = v; fill.style.width = v + '%';
+        }
+        var loaded = 0;
+        try {
+          new PerformanceObserver(function (list) {
+            loaded += list.getEntries().length;
+            paint(Math.min(90, 15 + loaded * 6));
+          }).observe({ type: 'resource', buffered: true });
+        } catch (e) {}
+        document.addEventListener('DOMContentLoaded', function () { paint(Math.max(shown, 45)); });
+        function finish() {
+          if (doneFlag) return; doneFlag = true;
+          paint(100);
+          var wait = Math.max(0, 300 - (performance.now() - t0));
+          setTimeout(function () {
+            pl.classList.add('ab-pl-out');
+            setTimeout(function () { pl.parentNode && pl.parentNode.removeChild(pl); }, 600);
+          }, wait);
+        }
+        if (document.readyState === 'complete') finish();
+        else addEventListener('load', finish, { once: true });
+        setTimeout(finish, 3500);
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

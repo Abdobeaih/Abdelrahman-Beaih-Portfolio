@@ -34,7 +34,7 @@ function PhilosophyBase() {
 
           <div className="portrait-frame" data-reveal>
             <img
-              src="/portrait.jpg"
+              src="/portrait.webp"
               alt={profile.display[lang]}
               className="portrait-img"
               loading="lazy"
